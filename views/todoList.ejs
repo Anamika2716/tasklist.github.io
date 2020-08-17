@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <title>Task List</title>
+</head>
+<body>
+  <div class="header">
+      <h1>Task List</h1>
+
+      <div id="taskList">
+          <div id="form">
+              <form action="/addTask" method="post">
+                  <div >
+                      Description
+                      <input type="text" name="description"  placeholder="Add Task" required>
+                  </div>
+                  <div >
+                      Description
+                      <select name="category"  placeholder="Select Suitable Category" required>
+                          <option id="work">Work</option>
+                          <option id="personal">Personal</option>
+                          <option id="learning">Learning</option>
+                      </select>
+                  </div>
+                  <div >
+                      Description
+                      <input type="date" name="Date"  placeholder="Add Date DD/MM/YYYY" required>
+                  </div>
+                  <button type="submit"> ADD</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+ <div id ="list">
+     <ul>
+         <% for( let i of taskList){
+             %>
+             <div>
+                 <li>
+                     <p id="listItems"><%= i.description %></p>
+                     <p id="listItems"><%= i.category %></p>
+                     <p id="listItems"><%= i.date %></p>
+                 </li>
+                 <div >
+                     <a href="/deleteTask/?description=<%= i.description%>">Delete</a>
+                 </div>
+                     </div>
+         <%}%>
+     </ul>
+ </div>
+</body>
+</html>
